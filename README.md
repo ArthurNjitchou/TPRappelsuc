@@ -261,10 +261,10 @@ Utilise la fonction __HAL_RCC_TIM2_CLK_ENABLE(); pour activer l'horloge TIM2.
 
 #### 3.	Configurer le mode d’interruption (si nécessaire) :
 -	Assurer que l’interruption est activée dans le NVIC :
-'''
+```
 • HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
 • HAL_NVIC_EnableIRQ(TIM2_IRQn);
-'''
+```
 #### 4.	Démarrer le Timer avec ou sans interruption :
-•	Sans interruption : ''' HAL_TIM_Base_Start(&htim2); '''
-•	Avec interruption : ''' HAL_TIM_Base_Start_IT(&htim2); '''
+•	Sans interruption : ``` HAL_TIM_Base_Start(&htim2); ```
+•	Avec interruption : ``` HAL_TIM_Base_Start_IT(&htim2); '```
