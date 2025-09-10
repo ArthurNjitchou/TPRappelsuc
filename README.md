@@ -245,23 +245,26 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif /* USE_FULL_ASSERT */
 ```
+---
 ## 2 Avec des interruptions
 Dans cette section nous verrons comment : — Utiliser un timer pour faire clignoter les LED, — Configurer le GPIO pour déclencher une interruption lors de l’appui sur un bouton. Nous utiliserons, disons, le timer TIM2.
+
 ### 1.	Rappeler les étapes nécessaires pour configurer un timer.	
 Pour configurer un timer comme TIM2, voici les étapes principales (comme détaillé précédemment) :
 
-1.	Activer l'horloge du Timer :
+#### 1.	Activer l'horloge du Timer :
 Utilise la fonction __HAL_RCC_TIM2_CLK_ENABLE(); pour activer l'horloge TIM2.
 
-2.	Configurer le Prescaler et la Période :
+#### 2.	Configurer le Prescaler et la Période :
 •	Le Prescaler divise la fréquence d'horloge pour ajuster la fréquence du timer.
 •	La Période détermine quand le timer génère un événement (mise à jour ou interruption).
 
-3.	Configurer le mode d’interruption (si nécessaire) :
+#### 3.	Configurer le mode d’interruption (si nécessaire) :
 -	Assurer que l’interruption est activée dans le NVIC :
-HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
-HAL_NVIC_EnableIRQ(TIM2_IRQn);
-
-5.	Démarrer le Timer avec ou sans interruption :
-•	Sans interruption : HAL_TIM_Base_Start(&htim2);
-•	Avec interruption : HAL_TIM_Base_Start_IT(&htim2);
+'''
+• HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
+• HAL_NVIC_EnableIRQ(TIM2_IRQn);
+'''
+#### 4.	Démarrer le Timer avec ou sans interruption :
+•	Sans interruption : ''' HAL_TIM_Base_Start(&htim2); '''
+•	Avec interruption : ''' HAL_TIM_Base_Start_IT(&htim2); '''
