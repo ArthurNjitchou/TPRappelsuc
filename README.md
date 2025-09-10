@@ -13,13 +13,13 @@ Le fichier main.c se trouve dans le répertoire Core/Src/ du projet généré pa
 Les commentaires /* USER CODE BEGIN ... */ et /* USER CODE END ... */ sont des marqueurs ajoutés par STM32CubeMX. Ils délimitent les zones dans lesquelles l’utilisateur peut écrire du code sans risque qu’il soit écrasé lors d’une régénération du projet. En dehors de ces zones, le code peut être perdu si le projet est reconfiguré et régénéré.
 ### 3. Quels sont les paramètres à passer à HAL_Delay() et HAL_GPIO_WritePin() ?
 •	HAL_Delay(ms) : prend un entier en millisecondes pour définir la durée de l’attente.
-Exemple :  HAL_Delay(1000); // Attente de 1 seconde
+Exemple : ``` HAL_Delay(1000); // Attente de 1 seconde ```
 
 •	HAL_GPIO_WritePin(GPIOx, GPIO_Pin, PinState) : prend trois paramètres :
 1.	le port GPIO (ex. GPIOA),
 2.	la broche (ex. GPIO_PIN_5),
 3.	l’état de la broche (GPIO_PIN_SET pour la mettre à 1 ou GPIO_PIN_RESET pour la mettre à 0).
-Exemple : HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // Met la broche PA5 à l’état haut
+Exemple : ``` HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // Met la broche PA5 à l’état haut ```
 ### 4. Dans quel fichier les ports d’entrée/sortie sont-ils définis ?
 Les définitions des broches et des ports GPIO se trouvent principalement dans le fichier gpio.h généré automatiquement par STM32CubeMX. On retrouve également certaines définitions dans main.h. Les fichiers de la bibliothèque HAL, comme stm32g4xx_hal_gpio.h, contiennent quant à eux les prototypes de fonctions et définitions génériques liées aux GPIO.
 ### 5. Écrire un programme permettant de faire clignoter la LED.
@@ -247,7 +247,9 @@ void assert_failed(uint8_t *file, uint32_t line)
 ```
 ---
 ## 2 Avec des interruptions
-Dans cette section nous verrons comment : — Utiliser un timer pour faire clignoter les LED, — Configurer le GPIO pour déclencher une interruption lors de l’appui sur un bouton. Nous utiliserons, disons, le timer TIM2.
+Dans cette section nous verrons comment : 
+— Utiliser un timer pour faire clignoter les LED,
+— Configurer le GPIO pour déclencher une interruption lors de l’appui sur un bouton. Nous utiliserons, disons, le timer TIM2.
 
 ### 1.	Rappeler les étapes nécessaires pour configurer un timer.	
 Pour configurer un timer comme TIM2, voici les étapes principales (comme détaillé précédemment) :
